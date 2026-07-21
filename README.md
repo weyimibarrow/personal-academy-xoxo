@@ -13,8 +13,9 @@ evaluates understanding after the learner engages with each resource.
 
 ## Status
 
-**Planning.** No application code yet. This repository currently contains the product
-spec, architecture, and roadmap. See [`docs/`](./docs).
+**Foundation (M0).** The application is scaffolded — Next.js (App Router) + TypeScript +
+Tailwind CSS v4 + shadcn/ui, with the editorial "reading-room" theme in place. See the
+product docs in [`docs/`](./docs).
 
 - [Product Spec](./docs/product-spec.md) — what we're building and why
 - [Architecture](./docs/architecture.md) — stack, data model, AI pipeline
@@ -24,6 +25,34 @@ spec, architecture, and roadmap. See [`docs/`](./docs).
 
 State a goal → receive a program of study → engage real resources → prove understanding →
 the program adapts.
+
+## Getting started
+
+Requires Node.js 20+.
+
+```bash
+npm install
+npm run dev      # start the dev server at http://localhost:3000
+npm run build    # production build
+npm run lint     # eslint
+```
+
+### Project structure
+
+```
+src/
+  app/                 # Next.js App Router (routes, layout, global styles)
+    globals.css        # Tailwind v4 + editorial theme tokens (light/dark)
+    layout.tsx         # root layout, fonts, metadata
+    page.tsx           # landing page
+  components/ui/       # shadcn/ui primitives (Button, Card, …)
+  lib/utils.ts         # cn() class-name helper
+docs/                  # product spec, architecture, roadmap
+```
+
+shadcn/ui is configured manually (see `components.json`) because this environment
+restricts outbound network to package registries; new primitives are added as code
+rather than via the CLI's registry fetch.
 
 ## Stack (locked)
 
