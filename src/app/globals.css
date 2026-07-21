@@ -1,0 +1,118 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+  Smarty Pants editorial theme — a warm, reading-room palette.
+  Paper-toned surfaces, ink foreground, a restrained academic ink-blue accent.
+  Values are plain sRGB hex so they are easy to reason about and adjust.
+*/
+:root {
+  --radius: 0.5rem;
+
+  --background: #faf7f2; /* warm paper */
+  --foreground: #201b13; /* ink */
+
+  --card: #ffffff;
+  --card-foreground: #201b13;
+
+  --popover: #ffffff;
+  --popover-foreground: #201b13;
+
+  --primary: #1f3a5c; /* oxford ink-blue */
+  --primary-foreground: #faf7f2;
+
+  --secondary: #efe9df; /* parchment */
+  --secondary-foreground: #201b13;
+
+  --muted: #efe9df;
+  --muted-foreground: #6b6152;
+
+  --accent: #ece3d4;
+  --accent-foreground: #201b13;
+
+  --destructive: #b3261e;
+  --destructive-foreground: #faf7f2;
+
+  --border: #e4dccf;
+  --input: #e4dccf;
+  --ring: #1f3a5c;
+}
+
+.dark {
+  --background: #17140f; /* deep warm charcoal */
+  --foreground: #ece4d6;
+
+  --card: #201b15;
+  --card-foreground: #ece4d6;
+
+  --popover: #201b15;
+  --popover-foreground: #ece4d6;
+
+  --primary: #a9c2e0; /* light ink-blue for dark surfaces */
+  --primary-foreground: #17140f;
+
+  --secondary: #2a241c;
+  --secondary-foreground: #ece4d6;
+
+  --muted: #2a241c;
+  --muted-foreground: #a89e8d;
+
+  --accent: #2f2820;
+  --accent-foreground: #ece4d6;
+
+  --destructive: #e06b62;
+  --destructive-foreground: #17140f;
+
+  --border: #322b22;
+  --input: #322b22;
+  --ring: #a9c2e0;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --font-sans: var(--font-geist-sans);
+  --font-serif: var(--font-serif);
+  --font-mono: var(--font-geist-mono);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "liga" 1, "calt" 1;
+  }
+  /* Display headings use the serif for a scholarly, editorial feel. */
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-serif), Georgia, "Times New Roman", serif;
+  }
+}
